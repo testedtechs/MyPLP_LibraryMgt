@@ -103,6 +103,5 @@ Students
 
     (add PUT, DELETE in crud.py as needed)
 
-📜 License
 
 
