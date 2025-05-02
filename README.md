@@ -56,3 +56,53 @@ This is a simple CRUD API for managing students and their course enrollments usi
 ```bash
 git clone https://github.com/your-username/student-portal-api.git
 cd student-portal-api
+
+
+### 2. Install Dependencies
+
+pip install fastapi uvicorn mysql-connector-python
+
+### 3. Set Up MySQL Database
+
+CREATE DATABASE student_portal;
+
+-- Then run the schema from `schema.sql` or manually:
+-- Use the SQL shown in the README to create tables
+
+Update db.py with your MySQL credentials:
+
+# db.py
+def get_connection():
+    return mysql.connector.connect(
+        host="localhost",
+        user="your_mysql_user",
+        password="your_mysql_password",
+        database="student_portal"
+    )
+
+### 4. Run the API Server
+
+uvicorn main:app --reload
+
+Visit http://localhost:8000/docs to interact with the Swagger UI.
+📂 Project Structure
+
+student_portal_api/
+├── main.py         # FastAPI app entry
+├── db.py           # DB connection setup
+├── models.py       # Pydantic models
+├── crud.py         # CRUD database logic
+└── README.md       # Project documentation
+
+🧪 API Endpoints
+Students
+
+    POST /students – Create a student
+
+    GET /students – Get all students
+
+    (add PUT, DELETE in crud.py as needed)
+
+📜 License
+
+
